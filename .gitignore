@@ -104,3 +104,5 @@ ENV/
 # IDE settings
 .vscode/
 .idea/
+
+/netbox_napalm_plugin/project-static/node_modules

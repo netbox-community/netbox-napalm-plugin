@@ -1,12 +1,10 @@
-====================
 # NetBox Napalm Plugin
-====================
 
 NetBox plugin for Napalm.
 
 
 * Free software: Apache-2.0
-* Documentation: https://netbox-napalm-plugin.readthedocs.io.
+* Documentation: https://netbox-community.github.io/netbox-napalm-plugin.
 
 
 ## Features

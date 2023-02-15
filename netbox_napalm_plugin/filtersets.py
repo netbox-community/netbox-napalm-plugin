@@ -1,5 +1,5 @@
 from netbox.filtersets import NetBoxModelFilterSet
-from .models import Napalm
+from .models import NapalmPlatform
 
 
 # class NapalmFilterSet(NetBoxModelFilterSet):

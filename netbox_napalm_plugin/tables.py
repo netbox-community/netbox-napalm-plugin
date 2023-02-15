@@ -1,15 +1,12 @@
 import django_tables2 as tables
 
 from netbox.tables import NetBoxTable, ChoiceFieldColumn
-from .models import Napalm
+from .models import NapalmPlatform
 
 
-class NapalmTable(NetBoxTable):
-    name = tables.Column(
-        linkify=True
-    )
+class NapalmPlatformTable(NetBoxTable):
 
     class Meta(NetBoxTable.Meta):
-        model = Napalm
-        fields = ('pk', 'id', 'name', 'actions')
-        default_columns = ('name', )
+        model = NapalmPlatform
+        fields = ('pk', 'platform__name', 'napalm_driver', 'napalm_args', 'actions')
+        default_columns = ('platform__name', 'napalm_driver')

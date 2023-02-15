@@ -1,0 +1,17 @@
+{
+  "name": "netbox_napalm_plugin",
+  "version": "0.1.0",
+  "description": "Napalm Plugin for NetBox",
+  "main": "index.js",
+  "author": "Arthur Hanson",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "~5.0.2",
+    "dayjs": "^1.11.5",
+    "esbuild": "^0.17.8"
+  }
+}

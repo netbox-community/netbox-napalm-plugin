@@ -6,13 +6,13 @@ from . import models, views
 
 urlpatterns = (
 
-    path('napalms/', views.NapalmListView.as_view(), name='napalm_list'),
-    path('napalms/add/', views.NapalmEditView.as_view(), name='napalm_add'),
-    path('napalms/<int:pk>/', views.NapalmView.as_view(), name='napalm'),
-    path('napalms/<int:pk>/edit/', views.NapalmEditView.as_view(), name='napalm_edit'),
-    path('napalms/<int:pk>/delete/', views.NapalmDeleteView.as_view(), name='napalm_delete'),
-    path('napalms/<int:pk>/changelog/', ObjectChangeLogView.as_view(), name='napalm_changelog', kwargs={
-        'model': models.Napalm
+    path('napal/', views.NapalmPlatformListView.as_view(), name='napalmplatform_list'),
+    path('napalm/add/', views.NapalmPlatformEditView.as_view(), name='napalmplatform_add'),
+    path('napalm/<int:pk>/', views.NapalmPlatformView.as_view(), name='napalmplatform'),
+    path('napalm/<int:pk>/edit/', views.NapalmPlatformEditView.as_view(), name='napalmplatform_edit'),
+    path('napalm/<int:pk>/delete/', views.NapalmPlatformDeleteView.as_view(), name='napalmplatform_delete'),
+    path('napalm/<int:pk>/changelog/', ObjectChangeLogView.as_view(), name='napalmplatform_changelog', kwargs={
+        'model': models.NapalmPlatform
     }),
 
 )
