@@ -25,13 +25,13 @@ For adding to a NetBox Docker setup see
 While this is still in development and not yet on pypi you can install with pip:
 
 ```bash
-pip install git+https://github.com/arthanson/netbox_napalm_plugin
+pip install git+https://github.com/netbox-community/netbox_napalm_plugin
 ```
 
 or by adding to your `local_requirements.txt` or `plugin_requirements.txt` (netbox-docker):
 
 ```bash
-git+https://github.com/arthanson/netbox_napalm_plugin
+git+https://github.com/netbox-community/netbox_napalm_plugin
 ```
 
 Enable the plugin in `/opt/netbox/netbox/netbox/configuration.py`,
