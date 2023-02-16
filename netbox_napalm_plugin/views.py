@@ -1,11 +1,10 @@
-from django.db.models import Count
-from django.utils.translation import gettext as _
-
 from dcim.constants import NONCONNECTABLE_IFACE_TYPES
 from dcim.models import Device
-
+from django.db.models import Count
+from django.utils.translation import gettext as _
 from netbox.views import generic
 from utilities.views import ViewTab, register_model_view
+
 from . import filtersets, forms, models, tables
 
 
@@ -28,62 +27,56 @@ class NapalmPlatformDeleteView(generic.ObjectDeleteView):
 
 
 class NAPALMViewTab(ViewTab):
-
     def render(self, instance):
         # Display NAPALM tabs only for devices which meet certain requirements
         if not (
-            hasattr(instance.platform, "napalm") and
-            instance.status == 'active' and
-            instance.primary_ip and
-            instance.platform and
-            instance.platform.napalm.napalm_driver
+            hasattr(instance.platform, "napalm")
+            and instance.status == "active"
+            and instance.primary_ip
+            and instance.platform
+            and instance.platform.napalm.napalm_driver
         ):
             return None
         return super().render(instance)
 
 
-@register_model_view(Device, 'status')
+@register_model_view(Device, "status")
 class DeviceStatusView(generic.ObjectView):
-    additional_permissions = ['dcim.napalm_read_device']
+    additional_permissions = ["dcim.napalm_read_device"]
     queryset = Device.objects.all()
-    template_name = 'netbox_napalm_plugin/status.html'
+    template_name = "netbox_napalm_plugin/status.html"
     tab = NAPALMViewTab(
-        label=_('Status'),
-        permission='dcim.napalm_read_device',
-        weight=3000
+        label=_("Status"), permission="dcim.napalm_read_device", weight=3000
     )
 
 
-@register_model_view(Device, 'lldp_neighbors', path='lldp-neighbors')
+@register_model_view(Device, "lldp_neighbors", path="lldp-neighbors")
 class DeviceLLDPNeighborsView(generic.ObjectView):
-    additional_permissions = ['dcim.napalm_read_device']
+    additional_permissions = ["dcim.napalm_read_device"]
     queryset = Device.objects.all()
-    template_name = 'netbox_napalm_plugin/lldp_neighbors.html'
+    template_name = "netbox_napalm_plugin/lldp_neighbors.html"
     tab = NAPALMViewTab(
-        label=_('LLDP Neighbors'),
-        permission='dcim.napalm_read_device',
-        weight=3100
+        label=_("LLDP Neighbors"), permission="dcim.napalm_read_device", weight=3100
     )
 
     def get_extra_context(self, request, instance):
-        interfaces = instance.vc_interfaces().restrict(request.user, 'view').prefetch_related(
-            '_path'
-        ).exclude(
-            type__in=NONCONNECTABLE_IFACE_TYPES
+        interfaces = (
+            instance.vc_interfaces()
+            .restrict(request.user, "view")
+            .prefetch_related("_path")
+            .exclude(type__in=NONCONNECTABLE_IFACE_TYPES)
         )
 
         return {
-            'interfaces': interfaces,
+            "interfaces": interfaces,
         }
 
 
-@register_model_view(Device, 'config')
+@register_model_view(Device, "config")
 class DeviceConfigView(generic.ObjectView):
-    additional_permissions = ['dcim.napalm_read_device']
+    additional_permissions = ["dcim.napalm_read_device"]
     queryset = Device.objects.all()
-    template_name = 'netbox_napalm_plugin/config.html'
+    template_name = "netbox_napalm_plugin/config.html"
     tab = NAPALMViewTab(
-        label=_('Config'),
-        permission='dcim.napalm_read_device',
-        weight=3200
+        label=_("Config"), permission="dcim.napalm_read_device", weight=3200
     )
