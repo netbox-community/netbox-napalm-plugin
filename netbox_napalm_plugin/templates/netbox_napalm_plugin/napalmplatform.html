@@ -12,17 +12,29 @@
         <div class="card-body">
           <table class="table table-hover attr-table">
             <tr>
-              <th scope="row">Name</th>
-              <td>{{ object.name }}</td>
+                <th scope="row">Platform</th>
+                <td>{{ object.platform|linkify|placeholder }}</td>
+            </tr>
+            <tr>
+              <th scope="row">NAPALM Driver</th>
+              <td>{{ object.napalm_driver|placeholder }}</td>
             </tr>
           </table>
         </div>
       </div>
+      {% include 'inc/panels/tags.html' %}
       {% include 'inc/panels/custom_fields.html' %}
     </div>
+
     <div class="col col-md-6">
-      {% include 'inc/panels/tags.html' %}
-      {% include 'inc/panels/comments.html' %}
+      <div class="card">
+        <h5 class="card-header">
+          NAPALM Arguments
+        </h5>
+        <div class="card-body">
+          <pre>{{ object.napalm_args|json }}</pre>
+        </div>
+      </div>
     </div>
   </div>
 {% endblock content %}
