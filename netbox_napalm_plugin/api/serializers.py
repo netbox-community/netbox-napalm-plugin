@@ -7,7 +7,7 @@ from netbox_napalm_plugin.models import NapalmPlatform
 
 class NapalmPlatformSerializer(NetBoxModelSerializer):
     url = serializers.HyperlinkedIdentityField(
-        view_name="plugins-api:netbox_napalm_plugin:napalmplatform-detail"
+        view_name="plugins-api:netbox_napalm_plugin-api:napalmplatform-detail"
     )
     platform = NestedPlatformSerializer()
 
@@ -15,6 +15,7 @@ class NapalmPlatformSerializer(NetBoxModelSerializer):
         model = NapalmPlatform
         fields = [
             "id",
+            "url",
             "platform",
             "napalm_driver",
             "napalm_args",
