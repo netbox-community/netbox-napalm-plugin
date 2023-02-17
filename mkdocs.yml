@@ -5,6 +5,8 @@ repo_name: arthanson/netbox_napalm_plugin
 #strict: true
 nav:
   - Home: index.md
+  - Configuration: configuration.md
+  - Integration: integration.md
   - Contributing: contributing.md
   - Changelog: changelog.md
 theme:

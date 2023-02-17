@@ -13,9 +13,11 @@ The features the plugin provides should be listed here.
 
 ## Compatibility
 
+> :warning: **NetBox 3.5 Beta**: This plugin is for NetBox 3.5 (Beta)
+
 | NetBox Version | Plugin Version |
 |----------------|----------------|
-|     3.4        |      0.1.0     |
+|     3.5        |      0.1.0     |
 
 ## Installing
 

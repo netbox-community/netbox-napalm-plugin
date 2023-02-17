@@ -12,8 +12,13 @@ class NapalmPlatformConfig(PluginConfig):
     name = "netbox_napalm_plugin"
     verbose_name = "NetBox Napalm Plugin"
     description = "NetBox plugin for Napalm."
-    version = "version"
+    version = __version__
+    author = __author__
+    author_email = __email__
     base_url = "netbox_napalm_plugin"
+    required_settings = []
+    min_version = '3.5.0'
+    max_version = '3.5.99'
 
 
 config = NapalmPlatformConfig
