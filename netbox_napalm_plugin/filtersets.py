@@ -4,10 +4,10 @@ from django.utils.translation import gettext as _
 from netbox.filtersets import (NetBoxModelFilterSet,
                                OrganizationalModelFilterSet)
 
-from .models import NapalmPlatform
+from .models import NapalmPlatformConfig
 
 
-class NapalmPlatformFilterSet(NetBoxModelFilterSet):
+class NapalmPlatformConfigFilterSet(NetBoxModelFilterSet):
     platform_id = django_filters.ModelMultipleChoiceFilter(
         field_name="platform",
         queryset=Platform.objects.all(),
@@ -21,5 +21,5 @@ class NapalmPlatformFilterSet(NetBoxModelFilterSet):
     )
 
     class Meta:
-        model = NapalmPlatform
+        model = NapalmPlatformConfig
         fields = ["id", "napalm_driver"]

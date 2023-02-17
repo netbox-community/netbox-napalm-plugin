@@ -8,22 +8,22 @@ from utilities.views import ViewTab, register_model_view
 from . import filtersets, forms, models, tables
 
 
-class NapalmPlatformView(generic.ObjectView):
-    queryset = models.NapalmPlatform.objects.all()
+class NapalmPlatformConfigView(generic.ObjectView):
+    queryset = models.NapalmPlatformConfig.objects.all()
 
 
-class NapalmPlatformListView(generic.ObjectListView):
-    queryset = models.NapalmPlatform.objects.all()
-    table = tables.NapalmPlatformTable
+class NapalmPlatformConfigListView(generic.ObjectListView):
+    queryset = models.NapalmPlatformConfig.objects.all()
+    table = tables.NapalmPlatformConfigTable
 
 
-class NapalmPlatformEditView(generic.ObjectEditView):
-    queryset = models.NapalmPlatform.objects.all()
-    form = forms.NapalmPlatformForm
+class NapalmPlatformConfigEditView(generic.ObjectEditView):
+    queryset = models.NapalmPlatformConfig.objects.all()
+    form = forms.NapalmPlatformConfigForm
 
 
-class NapalmPlatformDeleteView(generic.ObjectDeleteView):
-    queryset = models.NapalmPlatform.objects.all()
+class NapalmPlatformConfigDeleteView(generic.ObjectDeleteView):
+    queryset = models.NapalmPlatformConfig.objects.all()
 
 
 class NAPALMViewTab(ViewTab):

@@ -1,5 +1,6 @@
 from dcim.models import Device
 from django.shortcuts import get_object_or_404, redirect, render
+from netbox.api.exceptions import ServiceUnavailable
 from netbox.api.pagination import StripCountAnnotationsPaginator
 from netbox.api.viewsets import NetBoxModelViewSet
 from netbox.config import get_config
@@ -7,18 +8,18 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from netbox_napalm_plugin import filtersets
-from netbox_napalm_plugin.models import NapalmPlatform
+from netbox_napalm_plugin.models import NapalmPlatformConfig
 
 from . import serializers
 
 
-class NapalmPlatformViewSet(NetBoxModelViewSet):
-    queryset = NapalmPlatform.objects.prefetch_related(
+class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
+    queryset = NapalmPlatformConfig.objects.prefetch_related(
         "platform",
         "tags",
     )
-    serializer_class = serializers.NapalmPlatformSerializer
-    filterset_class = filtersets.NapalmPlatformFilterSet
+    serializer_class = serializers.NapalmPlatformConfigSerializer
+    filterset_class = filtersets.NapalmPlatformConfigFilterSet
     pagination_class = StripCountAnnotationsPaginator
 
     @action(detail=True, url_path="napalm")

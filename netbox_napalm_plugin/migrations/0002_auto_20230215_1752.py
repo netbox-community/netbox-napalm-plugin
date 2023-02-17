@@ -5,10 +5,10 @@ from django.db import migrations
 
 def migrate_napalm(apps, schema_editor):
     Platform = apps.get_model("dcim", "Platform")
-    NapalmPlatform = apps.get_model("netbox_napalm_plugin", "NapalmPlatform")
+    NapalmPlatformConfig = apps.get_model("netbox_napalm_plugin", "NapalmPlatformConfig")
     qs = Platform.objects.all().exclude(napalm_driver__exact="")
     for platform in qs:
-        NapalmPlatform.objects.create(
+        NapalmPlatformConfig.objects.create(
             platform=platform,
             napalm_driver=platform.napalm_driver,
             napalm_args=platform.napalm_args,

@@ -8,7 +8,7 @@ __version__ = "0.1.0"
 from extras.plugins import PluginConfig
 
 
-class NapalmConfig(PluginConfig):
+class NapalmPlatformConfig(PluginConfig):
     name = "netbox_napalm_plugin"
     verbose_name = "NetBox Napalm Plugin"
     description = "NetBox plugin for Napalm."
@@ -16,4 +16,4 @@ class NapalmConfig(PluginConfig):
     base_url = "netbox_napalm_plugin"
 
 
-config = NapalmConfig
+config = NapalmPlatformConfig

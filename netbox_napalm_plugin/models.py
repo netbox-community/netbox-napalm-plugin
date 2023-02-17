@@ -5,7 +5,7 @@ from django.utils.translation import gettext as _
 from netbox.models import NetBoxModel
 
 
-class NapalmPlatform(NetBoxModel):
+class NapalmPlatformConfig(NetBoxModel):
     platform = models.OneToOneField(
         Platform,
         on_delete=models.CASCADE,
@@ -35,4 +35,4 @@ class NapalmPlatform(NetBoxModel):
         return f"{self.platform.name} -> {self.napalm_driver}"
 
     def get_absolute_url(self):
-        return reverse("plugins:netbox_napalm_plugin:napalmplatform", args=[self.pk])
+        return reverse("plugins:netbox_napalm_plugin:napalmplatformconfig", args=[self.pk])

@@ -3,12 +3,12 @@ from ipam.models import Prefix
 from netbox.forms import NetBoxModelFilterSetForm, NetBoxModelForm
 from utilities.forms.fields import CommentField, DynamicModelChoiceField
 
-from .models import NapalmPlatform
+from .models import NapalmPlatformConfig
 
 
-class NapalmPlatformForm(NetBoxModelForm):
+class NapalmPlatformConfigForm(NetBoxModelForm):
     class Meta:
-        model = NapalmPlatform
+        model = NapalmPlatformConfig
         fields = (
             "platform",
             "napalm_driver",

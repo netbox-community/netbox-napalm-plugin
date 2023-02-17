@@ -2,17 +2,17 @@ from dcim.api.serializers import NestedPlatformSerializer
 from netbox.api.serializers import NetBoxModelSerializer
 from rest_framework import serializers
 
-from netbox_napalm_plugin.models import NapalmPlatform
+from netbox_napalm_plugin.models import NapalmPlatformConfig
 
 
-class NapalmPlatformSerializer(NetBoxModelSerializer):
+class NapalmPlatformConfigSerializer(NetBoxModelSerializer):
     url = serializers.HyperlinkedIdentityField(
-        view_name="plugins-api:netbox_napalm_plugin-api:napalmplatform-detail"
+        view_name="plugins-api:netbox_napalm_plugin-api:napalmplatformconfig-detail"
     )
     platform = NestedPlatformSerializer()
 
     class Meta:
-        model = NapalmPlatform
+        model = NapalmPlatformConfig
         fields = [
             "id",
             "url",
