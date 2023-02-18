@@ -45,7 +45,10 @@ PLUGINS = [
 ]
 
 PLUGINS_CONFIG = {
-    "Napalm": {},
+    'netbox_napalm_plugin': {
+        'NAPALM_USERNAME': 'xxx',
+        'NAPALM_PASSWORD': 'yyy',
+    },
 }
 ```
 

@@ -1,6 +1,6 @@
 # NAPALM
 
-NetBox supports integration with the [NAPALM automation](https://github.com/napalm-automation/napalm) library. NAPALM allows NetBox to serve a proxy for operational data, fetching live data from network devices and returning it to a requester via its REST API. Note that NetBox does not store any NAPALM data locally.
+NetBox NAPALM plugin supports integration with the [NAPALM automation](https://github.com/napalm-automation/napalm) library. NAPALM allows NetBox to serve a proxy for operational data, fetching live data from network devices and returning it to a requester via its REST API. Note that NetBox does not store any NAPALM data locally.
 
 The NetBox UI will display tabs for status, LLDP neighbors, and configuration under the device view if the following conditions are met:
 
@@ -8,9 +8,6 @@ The NetBox UI will display tabs for status, LLDP neighbors, and configuration un
 * A primary IP has been assigned to the device
 * A platform with a NAPALM driver has been assigned
 * The authenticated user has the `dcim.napalm_read_device` permission
-
-!!! note
-    To enable this integration, the NAPALM library must be installed. See [installation steps](../../installation/3-netbox/#napalm) for more information.
 
 Below is an example REST API request and response:
 

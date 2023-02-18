@@ -1,9 +1,10 @@
 from dcim.models import Device
 from django.shortcuts import get_object_or_404, redirect, render
+from extras.plugins import get_plugin_config
 from netbox.api.exceptions import ServiceUnavailable
 from netbox.api.pagination import StripCountAnnotationsPaginator
 from netbox.api.viewsets import NetBoxModelViewSet
-from netbox.config import get_config
+
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -89,11 +90,10 @@ class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
         napalm_methods = request.GET.getlist("method")
         response = {m: None for m in napalm_methods}
 
-        config = get_config()
-        username = config.NAPALM_USERNAME
-        password = config.NAPALM_PASSWORD
-        timeout = config.NAPALM_TIMEOUT
-        optional_args = config.NAPALM_ARGS.copy()
+        username = get_plugin_config('netbox_napalm_plugin', 'NAPALM_USERNAME')
+        password = get_plugin_config('netbox_napalm_plugin', 'NAPALM_PASSWORD')
+        timeout = get_plugin_config('netbox_napalm_plugin', 'NAPALM_TIMEOUT')
+        optional_args = get_plugin_config('netbox_napalm_plugin', 'NAPALM_ARGS').copy()
         if device.platform.napalm_args is not None:
             optional_args.update(device.platform.napalm_args)
 
