@@ -1,7 +1,7 @@
 site_name: NetBox Napalm Plugin
-site_url: https://arthanson.github.io/netbox_napalm_plugin
-repo_url: https://github.com/arthanson/netbox_napalm_plugin
-repo_name: arthanson/netbox_napalm_plugin
+site_url: https://netbox-community.github.io/netbox-napalm
+repo_url: https://github.com/netbox-community/netbox-napalm
+repo_name: netbox-community/netbox-napalm
 #strict: true
 nav:
   - Home: index.md
@@ -62,7 +62,7 @@ extra:
       link: https://github.com/netbox-community/cookiecutter-netbox-plugin
       name: Facebook
     - icon: fontawesome/brands/github
-      link: https://github.com/arthanson/netbox_napalm_plugin
+      link: https://github.com/netbox-community/netbox-napalm
       name: Github
     - icon: material/email
       link: "mailto:ahanson@netboxlabs.com"

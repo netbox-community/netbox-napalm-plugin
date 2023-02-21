@@ -33,7 +33,7 @@ pip install git+https://github.com/netbox-community/netbox-napalm
 or by adding to your `local_requirements.txt` or `plugin_requirements.txt` (netbox-docker):
 
 ```bash
-git+https://github.com/netbox-community/netbox_napalm_plugin
+git+https://github.com/netbox-community/netbox-napalm
 ```
 
 Enable the plugin in `/opt/netbox/netbox/netbox/configuration.py`,

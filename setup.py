@@ -30,7 +30,7 @@ setup(
     name='netbox_napalm_plugin',
     packages=find_packages(include=['netbox_napalm_plugin', 'netbox_napalm_plugin.*']),
     test_suite='tests',
-    url='https://github.com/arthanson/netbox_napalm_plugin',
+    url='https://github.com/netbox-community/netbox-napalm',
     version='0.1.0',
     zip_safe=False,
 )
