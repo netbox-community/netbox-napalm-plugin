@@ -12,7 +12,7 @@ The NetBox UI will display tabs for status, LLDP neighbors, and configuration un
 Below is an example REST API request and response:
 
 ```no-highlight
-GET /api/dcim/devices/1/napalm/?method=get_environment
+GET /api/plugins/netbox_napalm_plugin/napalmplatformconfig/1/napalm/?method=get_environment
 
 {
     "get_environment": {
@@ -29,7 +29,7 @@ GET /api/dcim/devices/1/napalm/?method=get_environment
 By default, the [`NAPALM_USERNAME`](../configuration/napalm.md#napalm_username) and [`NAPALM_PASSWORD`](../configuration/napalm.md#napalm_password) configuration parameters are used for NAPALM authentication. They can be overridden for an individual API call by specifying the `X-NAPALM-Username` and `X-NAPALM-Password` headers.
 
 ```
-$ curl "http://localhost/api/dcim/devices/1/napalm/?method=get_environment" \
+$ curl "http://localhost/api/plugins/netbox_napalm_plugin/napalmplatformconfig/1/napalm/?method=get_environment" \
 -H "Authorization: Token $TOKEN" \
 -H "Content-Type: application/json" \
 -H "Accept: application/json; indent=4" \
@@ -46,7 +46,7 @@ The list of supported NAPALM methods depends on the [NAPALM driver](https://napa
 It is possible to request the output of multiple NAPALM methods in a single API request by passing multiple `method` parameters. For example:
 
 ```no-highlight
-GET /api/dcim/devices/1/napalm/?method=get_ntp_servers&method=get_ntp_peers
+GET /api/plugins/netbox_napalm_plugin/napalmplatformconfig/1/napalm/?method=get_ntp_servers&method=get_ntp_peers
 
 {
     "get_ntp_servers": {
@@ -63,7 +63,7 @@ GET /api/dcim/devices/1/napalm/?method=get_ntp_servers&method=get_ntp_peers
 The behavior of NAPALM drivers can be adjusted according to the [optional arguments](https://napalm.readthedocs.io/en/latest/support/index.html#optional-arguments). NetBox exposes those arguments using headers prefixed with `X-NAPALM-`. For example, the SSH port is changed to 2222 in this API call:
 
 ```
-$ curl "http://localhost/api/dcim/devices/1/napalm/?method=get_environment" \
+$ curl "http://localhost/api/plugins/netbox_napalm_plugin/napalmplatformconfig/1/napalm/?method=get_environment" \
 -H "Authorization: Token $TOKEN" \
 -H "Content-Type: application/json" \
 -H "Accept: application/json; indent=4" \
