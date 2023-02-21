@@ -4,7 +4,7 @@ NetBox plugin for Napalm.
 
 
 * Free software: Apache-2.0
-* Documentation: https://netbox-community.github.io/netbox-napalm-plugin.
+* Documentation: https://netbox-community.github.io/netbox-napalm/.
 
 
 ## Features
@@ -27,7 +27,7 @@ For adding to a NetBox Docker setup see
 While this is still in development and not yet on pypi you can install with pip:
 
 ```bash
-pip install git+https://netbox-community.github.io/netbox-napalm/
+pip install git+https://github.com/netbox-community/netbox-napalm
 ```
 
 or by adding to your `local_requirements.txt` or `plugin_requirements.txt` (netbox-docker):
