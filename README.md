@@ -19,7 +19,7 @@ The features the plugin provides should be listed here.
 |----------------|----------------|
 |     3.5        |      0.1.0     |
 
-### Installation
+## Installation
 
 For adding to a NetBox Docker setup see
 [the general instructions for using netbox-docker with plugins](https://github.com/netbox-community/netbox-docker/wiki/Using-Netbox-Plugins).
@@ -42,15 +42,17 @@ or by adding to your `local_requirements.txt` or `plugin_requirements.txt` (netb
 Enable the plugin in `/opt/netbox/netbox/netbox/configuration.py`,
  or if you use netbox-docker, your `/configuration/plugins.py` file :
 
-```python
+```no-highlight
 PLUGINS = [
     'netbox_napalm_plugin'
 ]
+```
 
 ### Configure Plugin
 
 Configure the plugin in `configuration.py` under the `PLUGINS_CONFIG` parameter.
 
+```no-highlight
 PLUGINS_CONFIG = {
     'netbox_napalm_plugin': {
         'NAPALM_USERNAME': 'xxx',
