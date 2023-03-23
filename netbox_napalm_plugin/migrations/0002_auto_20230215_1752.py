@@ -3,7 +3,7 @@
 from django.db import migrations
 
 
-def migrate_napalm(apps, schema_editor):
+def forwards_migrate_napalm(apps, schema_editor):
     Platform = apps.get_model("dcim", "Platform")
     NapalmPlatformConfig = apps.get_model("netbox_napalm_plugin", "NapalmPlatformConfig")
     qs = Platform.objects.all().exclude(napalm_driver__exact="")
@@ -15,11 +15,21 @@ def migrate_napalm(apps, schema_editor):
         )
 
 
+def reverse_migrate_napalm(apps, schema_editor):
+    Platform = apps.get_model("dcim", "Platform")
+    NapalmPlatformConfig = apps.get_model("netbox_napalm_plugin", "NapalmPlatformConfig")
+    qs = Platform.objects.all().exclude(napalm_driver__exact="")
+    for platform in qs:
+        NapalmPlatformConfig.objects.delete(
+            platform=platform,
+        )
+
+
 class Migration(migrations.Migration):
     dependencies = [
         ("netbox_napalm_plugin", "0001_initial"),
     ]
 
     operations = [
-        migrations.RunPython(migrate_napalm),
+        migrations.RunPython(forwards_migrate_napalm, reverse_migrate_napalm),
     ]

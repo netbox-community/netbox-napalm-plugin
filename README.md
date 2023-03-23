@@ -19,30 +19,37 @@ The features the plugin provides should be listed here.
 |----------------|----------------|
 |     3.5        |      0.1.0     |
 
-## Installing
+### Installation
 
 For adding to a NetBox Docker setup see
 [the general instructions for using netbox-docker with plugins](https://github.com/netbox-community/netbox-docker/wiki/Using-Netbox-Plugins).
 
 While this is still in development and not yet on pypi you can install with pip:
 
-```bash
-pip install git+https://github.com/netbox-community/netbox-napalm
+```no-highlight
+$ source /opt/netbox/venv/bin/activate
+(venv) pip install git+https://github.com/netbox-community/netbox-napalm
 ```
 
 or by adding to your `local_requirements.txt` or `plugin_requirements.txt` (netbox-docker):
 
-```bash
-git+https://github.com/netbox-community/netbox-napalm
+```no-highlight
+(venv) git+https://github.com/netbox-community/netbox-napalm
 ```
+
+### Enable the Plugin
 
 Enable the plugin in `/opt/netbox/netbox/netbox/configuration.py`,
  or if you use netbox-docker, your `/configuration/plugins.py` file :
 
 ```python
 PLUGINS = [
-    'Napalm'
+    'netbox_napalm_plugin'
 ]
+
+### Configure Plugin
+
+Configure the plugin in `configuration.py` under the `PLUGINS_CONFIG` parameter.
 
 PLUGINS_CONFIG = {
     'netbox_napalm_plugin': {
@@ -50,6 +57,32 @@ PLUGINS_CONFIG = {
         'NAPALM_PASSWORD': 'yyy',
     },
 }
+```
+
+### Run Database Migrations
+
+Run the provided schema migrations:
+
+```no-highlight
+(venv) $ cd /opt/netbox/netbox/
+(venv) $ python3 manage.py migrate
+```
+
+### Collect Static Files
+
+Ensure the static files are copied to the static root directory with the `collectstatic` management command:
+
+```no-highlight
+(venv) $ cd /opt/netbox/netbox/
+(venv) $ python3 manage.py collectstatic
+```
+
+### Restart WSGI Service
+
+Restart the WSGI service to load the new plugin:
+
+```no-highlight
+# sudo systemctl restart netbox
 ```
 
 ## Credits
