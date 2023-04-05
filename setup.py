@@ -25,6 +25,7 @@ setup(
     description="NetBox plugin for Napalm.",
     install_requires=requirements,
     long_description=readme,
+    long_description_content_type='text/markdown',
     include_package_data=True,
     keywords='netbox_napalm_plugin',
     name='netbox_napalm_plugin',
