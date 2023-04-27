@@ -13,7 +13,7 @@ The features the plugin provides should be listed here.
 
 ## Compatibility
 
-> :warning: **NetBox 3.5 Beta**: This plugin is for NetBox 3.5 (Beta)
+> :warning: **NetBox 3.5**: This plugin is for NetBox 3.5
 
 | NetBox Version | Plugin Version |
 |----------------|----------------|
@@ -24,17 +24,15 @@ The features the plugin provides should be listed here.
 For adding to a NetBox Docker setup see
 [the general instructions for using netbox-docker with plugins](https://github.com/netbox-community/netbox-docker/wiki/Using-Netbox-Plugins).
 
-While this is still in development and not yet on pypi you can install with pip:
-
 ```no-highlight
 $ source /opt/netbox/venv/bin/activate
-(venv) pip install git+https://github.com/netbox-community/netbox-napalm
+(venv) pip install netbox-napalm-plugin
 ```
 
 or by adding to your `local_requirements.txt` or `plugin_requirements.txt` (netbox-docker):
 
 ```no-highlight
-(venv) git+https://github.com/netbox-community/netbox-napalm
+(venv) netbox-napalm-plugin
 ```
 
 ### Enable the Plugin
