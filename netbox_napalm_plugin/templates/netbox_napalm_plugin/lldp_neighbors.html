@@ -4,7 +4,7 @@
 {% block title %}{{ object }} - LLDP Neighbors{% endblock %}
 
 {% block head %}
-<script type="text/javascript" src="{% static 'netbox_napalm_plugin/js/lldp.js' %}" onerror="window.location='{% url 'media_failure' %}?filename=lldp.js'"></script>
+<script type="text/javascript" src="{% static 'lldp.js' %}" onerror="window.location='{% url 'media_failure' %}?filename=lldp.js'"></script>
 {% endblock %}
 
 {% block content %}
