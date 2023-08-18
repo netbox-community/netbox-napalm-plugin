@@ -18,6 +18,7 @@ The features the plugin provides should be listed here.
 | NetBox Version | Plugin Version |
 |----------------|----------------|
 |     3.5        |      0.1.0     |
+|     3.5.8      |      0.1.4     |
 
 ## Installation
 
