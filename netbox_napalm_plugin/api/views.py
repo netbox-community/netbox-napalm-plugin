@@ -35,10 +35,12 @@ class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
             )
         if device.platform is None:
             raise ServiceUnavailable("No platform is configured for this device.")
-        if (
-            not hasattr(device.platform, "napalm")
-            or not device.platform.napalm.napalm_driver
-        ):
+        # Checks to see if NapalmPlatform object exists
+        if not NapalmPlatformConfig.objects.filter(platform=device.platform).exists():
+            raise ServiceUnavailable(
+                f"No NAPALM Platform Mapping is configured for this device's platform: {device.platform}."
+            )
+        if NapalmPlatformConfig.objects.get(platform=device.platform).napalm_driver == "":
             raise ServiceUnavailable(
                 f"No NAPALM driver is configured for this device's platform: {device.platform}."
             )
@@ -75,11 +77,11 @@ class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
 
         # Validate the configured driver
         try:
-            driver = napalm.get_network_driver(device.platform.napalm_driver)
+            driver = napalm.get_network_driver(NapalmPlatformConfig.objects.get(platform=device.platform).napalm_driver)
         except ModuleImportError:
             raise ServiceUnavailable(
                 "NAPALM driver for platform {} not found: {}.".format(
-                    device.platform, device.platform.napalm_driver
+                    device.platform, NapalmPlatformConfig.objects.get(platform=device.platform).napalm_driver
                 )
             )
 
@@ -94,9 +96,8 @@ class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
         password = get_plugin_config('netbox_napalm_plugin', 'NAPALM_PASSWORD')
         timeout = get_plugin_config('netbox_napalm_plugin', 'NAPALM_TIMEOUT')
         optional_args = get_plugin_config('netbox_napalm_plugin', 'NAPALM_ARGS').copy()
-        if device.platform.napalm_args is not None:
-            optional_args.update(device.platform.napalm_args)
-
+        if NapalmPlatformConfig.objects.get(platform=device.platform).napalm_args is not None:
+            optional_args.update(NapalmPlatformConfig.objects.get(platform=device.platform).napalm_args)
         # Update NAPALM parameters according to the request headers
         for header in request.headers:
             if header[:9].lower() != "x-napalm-":
