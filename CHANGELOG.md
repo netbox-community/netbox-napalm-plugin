@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.6 (2023-09-08)
+
+* Fix migrations NetBox 3.6.0
+
 ## 0.1.5 (2023-09-08)
 
 * Fix for NetBox 3.6.0
