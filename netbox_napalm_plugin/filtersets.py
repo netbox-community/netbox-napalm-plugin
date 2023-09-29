@@ -1,8 +1,7 @@
 import django_filters
 from dcim.models import Platform
 from django.utils.translation import gettext as _
-from netbox.filtersets import (NetBoxModelFilterSet,
-                               OrganizationalModelFilterSet)
+from netbox.filtersets import NetBoxModelFilterSet, OrganizationalModelFilterSet
 
 from .models import NapalmPlatformConfig
 

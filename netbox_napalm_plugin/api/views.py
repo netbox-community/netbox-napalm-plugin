@@ -4,7 +4,6 @@ from extras.plugins.utils import get_plugin_config
 from netbox.api.exceptions import ServiceUnavailable
 from netbox.api.pagination import StripCountAnnotationsPaginator
 from netbox.api.viewsets import NetBoxModelViewSet
-
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -30,9 +29,7 @@ class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
         """
         device = get_object_or_404(Device.objects.all(), pk=pk)
         if not device.primary_ip:
-            raise ServiceUnavailable(
-                "This device does not have a primary IP address configured."
-            )
+            raise ServiceUnavailable("This device does not have a primary IP address configured.")
         if device.platform is None:
             raise ServiceUnavailable("No platform is configured for this device.")
         # Checks to see if NapalmPlatform object exists
@@ -41,9 +38,7 @@ class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
                 f"No NAPALM Platform Mapping is configured for this device's platform: {device.platform}."
             )
         if NapalmPlatformConfig.objects.get(platform=device.platform).napalm_driver == "":
-            raise ServiceUnavailable(
-                f"No NAPALM driver is configured for this device's platform: {device.platform}."
-            )
+            raise ServiceUnavailable(f"No NAPALM driver is configured for this device's platform: {device.platform}.")
 
         # Check for primary IP address from NetBox object
         if device.primary_ip:
@@ -70,9 +65,7 @@ class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
             from napalm.base.exceptions import ModuleImportError
         except ModuleNotFoundError as e:
             if getattr(e, "name") == "napalm":
-                raise ServiceUnavailable(
-                    "NAPALM is not installed. Please see the documentation for instructions."
-                )
+                raise ServiceUnavailable("NAPALM is not installed. Please see the documentation for instructions.")
             raise e
 
         # Validate the configured driver
@@ -92,10 +85,10 @@ class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
         napalm_methods = request.GET.getlist("method")
         response = {m: None for m in napalm_methods}
 
-        username = get_plugin_config('netbox_napalm_plugin', 'NAPALM_USERNAME')
-        password = get_plugin_config('netbox_napalm_plugin', 'NAPALM_PASSWORD')
-        timeout = get_plugin_config('netbox_napalm_plugin', 'NAPALM_TIMEOUT')
-        optional_args = get_plugin_config('netbox_napalm_plugin', 'NAPALM_ARGS').copy()
+        username = get_plugin_config("netbox_napalm_plugin", "NAPALM_USERNAME")
+        password = get_plugin_config("netbox_napalm_plugin", "NAPALM_PASSWORD")
+        timeout = get_plugin_config("netbox_napalm_plugin", "NAPALM_TIMEOUT")
+        optional_args = get_plugin_config("netbox_napalm_plugin", "NAPALM_ARGS").copy()
         if NapalmPlatformConfig.objects.get(platform=device.platform).napalm_args is not None:
             optional_args.update(NapalmPlatformConfig.objects.get(platform=device.platform).napalm_args)
         # Update NAPALM parameters according to the request headers
@@ -122,9 +115,7 @@ class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
         try:
             d.open()
         except Exception as e:
-            raise ServiceUnavailable(
-                "Error connecting to the device at {}: {}".format(host, e)
-            )
+            raise ServiceUnavailable("Error connecting to the device at {}: {}".format(host, e))
 
         # Validate and execute each specified NAPALM method
         for method in napalm_methods:
@@ -137,11 +128,7 @@ class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
             try:
                 response[method] = getattr(d, method)()
             except NotImplementedError:
-                response[method] = {
-                    "error": "Method {} not implemented for NAPALM driver {}".format(
-                        method, driver
-                    )
-                }
+                response[method] = {"error": "Method {} not implemented for NAPALM driver {}".format(method, driver)}
             except Exception as e:
                 response[method] = {"error": "Method {} failed: {}".format(method, e)}
         d.close()

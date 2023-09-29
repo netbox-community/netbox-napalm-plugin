@@ -5,9 +5,7 @@ from . import models, views
 
 urlpatterns = (
     path("napalm/", views.NapalmPlatformConfigListView.as_view(), name="napalmplatformconfig_list"),
-    path(
-        "napalm/add/", views.NapalmPlatformConfigEditView.as_view(), name="napalmplatformconfig_add"
-    ),
+    path("napalm/add/", views.NapalmPlatformConfigEditView.as_view(), name="napalmplatformconfig_add"),
     path("napalm/<int:pk>/", views.NapalmPlatformConfigView.as_view(), name="napalmplatformconfig"),
     path(
         "napalm/<int:pk>/edit/",

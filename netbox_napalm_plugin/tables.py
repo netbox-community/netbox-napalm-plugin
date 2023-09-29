@@ -7,11 +7,11 @@ from .models import NapalmPlatformConfig
 
 class NapalmPlatformConfigTable(NetBoxTable):
     name = tables.Column(
-        accessor=Accessor('platform__name'),
+        accessor=Accessor("platform__name"),
         linkify={
-            'viewname': 'plugins:netbox_napalm_plugin:napalmplatformconfig',
-            'args': [Accessor('pk')],
-        }
+            "viewname": "plugins:netbox_napalm_plugin:napalmplatformconfig",
+            "args": [Accessor("pk")],
+        },
     )
 
     class Meta(NetBoxTable.Meta):

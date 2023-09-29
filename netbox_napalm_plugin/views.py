@@ -45,9 +45,7 @@ class DeviceStatusView(generic.ObjectView):
     additional_permissions = ["dcim.napalm_read_device"]
     queryset = Device.objects.all()
     template_name = "netbox_napalm_plugin/status.html"
-    tab = NAPALMViewTab(
-        label=_("Status"), permission="dcim.napalm_read_device", weight=3000
-    )
+    tab = NAPALMViewTab(label=_("Status"), permission="dcim.napalm_read_device", weight=3000)
 
 
 @register_model_view(Device, "lldp_neighbors", path="lldp-neighbors")
@@ -55,9 +53,7 @@ class DeviceLLDPNeighborsView(generic.ObjectView):
     additional_permissions = ["dcim.napalm_read_device"]
     queryset = Device.objects.all()
     template_name = "netbox_napalm_plugin/lldp_neighbors.html"
-    tab = NAPALMViewTab(
-        label=_("LLDP Neighbors"), permission="dcim.napalm_read_device", weight=3100
-    )
+    tab = NAPALMViewTab(label=_("LLDP Neighbors"), permission="dcim.napalm_read_device", weight=3100)
 
     def get_extra_context(self, request, instance):
         interfaces = (
@@ -77,6 +73,4 @@ class DeviceConfigView(generic.ObjectView):
     additional_permissions = ["dcim.napalm_read_device"]
     queryset = Device.objects.all()
     template_name = "netbox_napalm_plugin/config.html"
-    tab = NAPALMViewTab(
-        label=_("Config"), permission="dcim.napalm_read_device", weight=3200
-    )
+    tab = NAPALMViewTab(label=_("Config"), permission="dcim.napalm_read_device", weight=3200)
