@@ -22,7 +22,7 @@ class NapalmPlatformConfig(PluginConfig):
         'NAPALM_ARGS': {},
     }
     min_version = '3.5.0-dev'
-    max_version = '3.6.99'
+    max_version = '3.7.99'
 
 
 config = NapalmPlatformConfig
