@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.7 (2024-01-02)
+
+* Bump version check to support NetBox 3.7
+
 ## 0.1.6 (2023-09-08)
 
 * Fix migrations NetBox 3.6.0
