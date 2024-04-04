@@ -1,6 +1,6 @@
 from dcim.models import Device
 from django.shortcuts import get_object_or_404, redirect, render
-from extras.plugins.utils import get_plugin_config
+from netbox.plugins.utils import get_plugin_config
 from netbox.api.exceptions import ServiceUnavailable
 from netbox.api.pagination import StripCountAnnotationsPaginator
 from netbox.api.viewsets import NetBoxModelViewSet

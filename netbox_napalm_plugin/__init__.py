@@ -5,7 +5,7 @@ __email__ = "ahanson@netboxlabs.com"
 __version__ = "0.1.6"
 
 
-from extras.plugins import PluginConfig
+from netbox.plugins import PluginConfig
 
 
 class NapalmPlatformConfig(PluginConfig):
@@ -21,8 +21,8 @@ class NapalmPlatformConfig(PluginConfig):
         'NAPALM_TIMEOUT': 30,
         'NAPALM_ARGS': {},
     }
-    min_version = '3.5.0-dev'
-    max_version = '3.7.99'
+    min_version = '4.0-beta1'
+    max_version = '4.0.99'
 
 
 config = NapalmPlatformConfig

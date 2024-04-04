@@ -1,12 +1,10 @@
-from extras.plugins import PluginMenuButton, PluginMenuItem
-from utilities.choices import ButtonColorChoices
+from netbox.plugins import PluginMenuButton, PluginMenuItem
 
 plugin_buttons = [
     PluginMenuButton(
         link="plugins:netbox_napalm_plugin:napalmplatformconfig_add",
         title="Add",
         icon_class="mdi mdi-plus-thick",
-        color=ButtonColorChoices.GREEN,
     )
 ]
 
