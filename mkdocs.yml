@@ -1,12 +1,10 @@
 site_name: NetBox Napalm Plugin
-site_url: https://netbox-community.github.io/netbox-napalm
-repo_url: https://github.com/netbox-community/netbox-napalm
-repo_name: netbox-community/netbox-napalm
+site_url: https://netbox-community.github.io/netbox-napalm-plugin
+repo_url: https://github.com/netbox-community/netbox-napalm-plugin
+repo_name: netbox-community/netbox-napalm-plugin
 #strict: true
 nav:
   - Home: index.md
-  - Configuration: configuration.md
-  - Integration: integration.md
   - Contributing: contributing.md
   - Changelog: changelog.md
 theme:
@@ -22,9 +20,10 @@ theme:
     - navigation.instant
     - navigation.tabs.sticky
 markdown_extensions:
+  - attr_list
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.mark
@@ -50,7 +49,7 @@ plugins:
       lang: en
   - mkdocstrings:
       watch:
-        - netbox_napalm_plugin
+        - netbox-napalm-plugin
 extra:
   social:
     - icon: fontawesome/brands/twitter
@@ -62,7 +61,7 @@ extra:
       link: https://github.com/netbox-community/cookiecutter-netbox-plugin
       name: Facebook
     - icon: fontawesome/brands/github
-      link: https://github.com/netbox-community/netbox-napalm
+      link: https://github.com/netbox-community/netbox-napalm-plugin
       name: Github
     - icon: material/email
       link: "mailto:ahanson@netboxlabs.com"
