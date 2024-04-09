@@ -55,26 +55,27 @@ Ready to contribute? Here's how to set up `netbox-napalm` for local development.
     $ git clone git@github.com:your_name_here/netbox-napalm.git
     ```
 
-3. Install dependencies and start your virtualenv:
+3. Activate the NetBox virtual environment (see the NetBox documentation under [Setting up a Development Environment](https://docs.netbox.dev/en/stable/development/getting-started/)):
 
     ```
-    $ poetry install -E test -E doc -E dev
+    $ source ~/.venv/netbox/bin/activate
     ```
 
-4. Create a branch for local development:
+4. Add the plugin to NetBox virtual environment in Develop mode (see [Plugins Development](https://docs.netbox.dev/en/stable/plugins/development/)):
+
+    To ease development, it is recommended to go ahead and install the plugin at this point using setuptools' develop mode. This will create symbolic links within your Python environment to the plugin development directory. Call setup.py from the plugin's root directory with the develop argument (instead of install):
+
+    ```
+    $ python setup.py develop
+    ```
+
+5. Create a branch for local development:
 
     ```
     $ git checkout -b name-of-your-bugfix-or-feature
     ```
 
     Now you can make your changes locally.
-
-5. When you're done making changes, check that your changes pass the
-   tests, including testing other Python versions, with tox:
-
-    ```
-    $ poetry run tox
-    ```
 
 6. Commit your changes and push your branch to GitHub:
 
@@ -94,7 +95,7 @@ Before you submit a pull request, check that it meets these guidelines:
 2. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
    feature to the list in README.md.
-3. The pull request should work for Python 3.6, 3.7, 3.8 and 3.9. Check
+3. The pull request should work for Python 3.8, 3.9, 3.10 and 3.11. Check
    https://github.com/netbox-community/netbox-napalm/actions
    and make sure that the tests pass for all supported Python versions.
 
@@ -102,13 +103,5 @@ Before you submit a pull request, check that it meets these guidelines:
 ## Deploying
 
 A reminder for the maintainers on how to deploy.
-Make sure all your changes are committed (including an entry in CHANGELOG.md).
-Then run:
-
-```
-$ poetry run bump2version patch # possible: major / minor / patch
-$ git push
-$ git push --tags
-```
-
-GitHub Actions will then deploy to PyPI if tests pass.
+Make sure all your changes are committed (including an entry in CHANGELOG.md) and that all tests pass.
+Then in the github project go to `Releases` and create a new release with a new tag.  This will automatically upload the release to pypi:
