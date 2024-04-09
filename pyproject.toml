@@ -26,6 +26,9 @@ classifiers=[
 ]
 
 requires-python = ">=3.8.1"
+dependencies = [
+    'napalm<5.0'
+]
 
 [project.optional-dependencies]
 test = [
