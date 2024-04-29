@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.9 (2024-04-29)
+
+* Fix js in distro
+
 ## 0.1.8 (2024-04-16)
 
 * Refactorings for pypi deployment
