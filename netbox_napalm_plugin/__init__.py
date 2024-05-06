@@ -21,7 +21,7 @@ class NapalmPlatformConfig(PluginConfig):
         'NAPALM_TIMEOUT': 30,
         'NAPALM_ARGS': {},
     }
-    min_version = '4.0.0'
+    min_version = '4.0-beta1'
     max_version = '4.0.99'
 
 
