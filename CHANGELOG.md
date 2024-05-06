@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.9 (2024-04-29)
+
+* Fix js in distro
+
+## 0.1.8 (2024-04-16)
+
+* Refactorings for pypi deployment
+
+## 0.1.7 (2024-01-02)
+
+* Update for NetBox 3.7
+
 ## 0.1.6 (2023-09-08)
 
 * Fix migrations NetBox 3.6.0

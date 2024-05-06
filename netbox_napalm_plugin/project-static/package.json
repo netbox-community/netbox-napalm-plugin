@@ -1,6 +1,6 @@
 {
   "name": "netbox_napalm_plugin",
-  "version": "0.1.6",
+  "version": "0.1.9",
   "description": "Napalm Plugin for NetBox",
   "main": "index.js",
   "author": "Arthur Hanson",

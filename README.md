@@ -13,13 +13,13 @@ The features the plugin provides should be listed here.
 
 ## Compatibility
 
-> :warning: **NetBox 3.5**: This plugin is for NetBox 3.5
-
 | NetBox Version | Plugin Version |
 |----------------|----------------|
 |     3.5        |      0.1.0     |
 |     3.5.8      |      0.1.4     |
-|     3.6.0 >      |      0.1.5     |
+|     3.6.0      |      0.1.5     |
+|     3.7.0      |      0.1.7     |
+
 ## Installation
 
 For adding to a NetBox Docker setup see
