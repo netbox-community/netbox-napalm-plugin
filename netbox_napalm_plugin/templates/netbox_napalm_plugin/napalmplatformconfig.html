@@ -9,18 +9,16 @@
 
         <h5 class="card-header">NetBox Napalm Plugin</h5>
 
-        <div class="card-body">
-          <table class="table table-hover attr-table">
-            <tr>
-                <th scope="row">Platform</th>
-                <td>{{ object.platform|linkify|placeholder }}</td>
-            </tr>
-            <tr>
-              <th scope="row">NAPALM Driver</th>
-              <td>{{ object.napalm_driver|placeholder }}</td>
-            </tr>
-          </table>
-        </div>
+        <table class="table table-hover attr-table">
+          <tr>
+              <th scope="row">Platform</th>
+              <td>{{ object.platform|linkify|placeholder }}</td>
+          </tr>
+          <tr>
+            <th scope="row">NAPALM Driver</th>
+            <td>{{ object.napalm_driver|placeholder }}</td>
+          </tr>
+        </table>
       </div>
       {% include 'inc/panels/tags.html' %}
       {% include 'inc/panels/custom_fields.html' %}
