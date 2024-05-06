@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0 (2024-05-06)
+
+* For NetBox 4.0
+
 ## 0.1.9 (2024-04-29)
 
 * Fix js in distro
