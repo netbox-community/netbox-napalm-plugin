@@ -9,13 +9,14 @@
     "build": "node build.mjs"
   },
   "dependencies": {
-    "bootstrap": "~5.3.3",
-    "dayjs": "^1.11.5"
+    "bootstrap": "5.3.3",
+    "dayjs": "^1.11.11"
   },
   "devDependencies": {
+    "@types/bootstrap": "5.2.10",
     "esbuild": "^0.13.15"
   },
   "resolutions": {
-    "@types/bootstrap/**/@popperjs/core": "^2.11.6"
+    "@types/bootstrap/**/@popperjs/core": "^2.11.8"
   }
 }
