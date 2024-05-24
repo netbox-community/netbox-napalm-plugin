@@ -38,8 +38,8 @@
         </div>
     </div>
 </div>
-{% endblock %}
+<div id="netbox-data" style="display: none!important; visibility: hidden!important">
+    <span data-object-url="{% url 'plugins-api:netbox_napalm_plugin-api:napalmplatformconfig-napalm' pk=object.pk %}?method=get_config"></span>
+</div>
 
-{% block data %}
-<span data-object-url="{% url 'plugins-api:netbox_napalm_plugin-api:napalmplatformconfig-napalm' pk=object.pk %}?method=get_config"></span>
 {% endblock %}
