@@ -258,7 +258,8 @@ export function getNetboxData(key: string): string | null {
   if (!key.startsWith('data-')) {
     key = `data-${key}`;
   }
-  for (const element of getElements('body > div#netbox-data > *')) {
+  var parent_div = document.getElementById("netbox-data");
+  for (const element of parent_div.children) {
     const value = element.getAttribute(key);
     if (isTruthy(value)) {
       return value;
