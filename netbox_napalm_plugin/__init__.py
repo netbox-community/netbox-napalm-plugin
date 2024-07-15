@@ -15,7 +15,7 @@ class NapalmPlatformConfig(PluginConfig):
     version = __version__
     author = __author__
     author_email = __email__
-    base_url = "netbox_napalm_plugin"
+    base_url = "netbox-napalm-plugin"
     required_settings = ['NAPALM_USERNAME', 'NAPALM_PASSWORD', ]
     default_settings = {
         'NAPALM_TIMEOUT': 30,
