@@ -1,4 +1,4 @@
-from dcim.api.serializers import NestedPlatformSerializer
+from dcim.api.nested_serializers import NestedPlatformSerializer
 from netbox.api.serializers import NetBoxModelSerializer
 from rest_framework import serializers
 

@@ -18,8 +18,9 @@ The features the plugin provides should be listed here.
 |     3.5        |      0.1.0     |
 |     3.5.8      |      0.1.4     |
 |     3.6.0      |      0.1.5     |
-|   < 3.7.6      |      0.1.7     |
-|   >= 4.0.2     |      0.2.1     |
+|     3.7.6      |      0.1.7     |
+|   < 4.0.11     |      0.2.1     |
+|   >= 4.1.0     |      0.3.0     |
 
 ## Installation
 
