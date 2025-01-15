@@ -20,7 +20,8 @@ The features the plugin provides should be listed here.
 |     3.6.0      |      0.1.5     |
 |     3.7.6      |      0.1.7     |
 |   < 4.0.11     |      0.2.1     |
-|   >= 4.1.0     |      0.3.0     |
+|   >= 4.1.0 < 4.2.0    |      0.3.0     |
+|   >= 4.2.0     |      0.4.0     |
 
 ## Installation
 
