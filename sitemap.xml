@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://netbox-community.github.io/netbox-napalm-plugin/</loc>
+         <lastmod>2026-01-07</lastmod>
+    </url>
+    <url>
+         <loc>https://netbox-community.github.io/netbox-napalm-plugin/changelog/</loc>
+         <lastmod>2026-01-07</lastmod>
+    </url>
+    <url>
+         <loc>https://netbox-community.github.io/netbox-napalm-plugin/configuration/</loc>
+         <lastmod>2026-01-07</lastmod>
+    </url>
+    <url>
+         <loc>https://netbox-community.github.io/netbox-napalm-plugin/contributing/</loc>
+         <lastmod>2026-01-07</lastmod>
+    </url>
+    <url>
+         <loc>https://netbox-community.github.io/netbox-napalm-plugin/integration/</loc>
+         <lastmod>2026-01-07</lastmod>
+    </url>
+</urlset>
