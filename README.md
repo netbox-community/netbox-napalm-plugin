@@ -24,6 +24,7 @@ The features the plugin provides should be listed here.
 | >= 4.2.0         | 0.3.1          |
 | >= 4.3.0         | 0.3.2          |
 | >= 4.4.0         | 0.3.3          |
+| >= 4.5.0         | 0.3.4          |
 
 ## Installation
 
