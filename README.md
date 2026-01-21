@@ -38,6 +38,8 @@ $ source /opt/netbox/venv/bin/activate
 
 or by adding to your `local_requirements.txt` or `plugin_requirements.txt` (netbox-docker):
 
+Please note: **dashes**
+
 ```no-highlight
 (venv) netbox-napalm-plugin
 ```
@@ -46,6 +48,8 @@ or by adding to your `local_requirements.txt` or `plugin_requirements.txt` (netb
 
 Enable the plugin in `/opt/netbox/netbox/netbox/configuration.py`,
  or if you use netbox-docker, your `/configuration/plugins.py` file :
+ 
+ Please note: **underscores**
 
 ```no-highlight
 PLUGINS = [
