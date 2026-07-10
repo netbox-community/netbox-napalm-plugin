@@ -2,7 +2,7 @@
 
 __author__ = """Arthur Hanson"""
 __email__ = "ahanson@netboxlabs.com"
-__version__ = "0.3.3"
+__version__ = "0.3.4"
 
 
 from netbox.plugins import PluginConfig
@@ -15,14 +15,14 @@ class NapalmPlatformConfig(PluginConfig):
     version = __version__
     author = __author__
     author_email = __email__
-    base_url = "netbox_napalm_plugin"
+    base_url = "netbox-napalm-plugin"
     required_settings = ['NAPALM_USERNAME', 'NAPALM_PASSWORD', ]
     default_settings = {
         'NAPALM_TIMEOUT': 30,
         'NAPALM_ARGS': {},
     }
     min_version = '4.2.0'
-    max_version = '4.5.99'
+    max_version = '4.6.99'
 
 
 config = NapalmPlatformConfig
