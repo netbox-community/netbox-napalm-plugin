@@ -3,7 +3,7 @@ type ReqData = URLSearchParams | Dict | undefined | unknown;
 type SelectedOption = { name: string; options: string[] };
 
 declare global {
-    interface Window { CSRF_TOKEN: any; }
+    interface Window { CSRF_TOKEN: any; bootstrap: typeof import('bootstrap'); }
 }
 
 /**

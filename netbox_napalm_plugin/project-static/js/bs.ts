@@ -1,4 +1,4 @@
-import { Toast } from 'bootstrap';
+import type { Toast } from 'bootstrap';
 
 type ToastLevel = 'danger' | 'warning' | 'success' | 'info';
 
@@ -70,7 +70,11 @@ export function createToast(
   container.appendChild(main);
   document.body.appendChild(container);
 
-  const toast = new Toast(main);
+  // NetBox core already loads Bootstrap's JS and exposes it as `window.bootstrap`. Importing the
+  // 'bootstrap' package here instead would bundle a second copy into this script, which
+  // re-registers Bootstrap's document-level data-api click handlers (collapse, tab, etc.) and
+  // conflicts with NetBox's own, breaking things like the sidebar menu's expand/collapse toggle.
+  const toast = new window.bootstrap.Toast(main);
   return toast;
 }
 

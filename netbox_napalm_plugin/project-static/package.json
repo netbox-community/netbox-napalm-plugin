@@ -9,10 +9,10 @@
     "build": "node build.mjs"
   },
   "dependencies": {
-    "bootstrap": "~5.3.3",
     "dayjs": "^1.11.5"
   },
   "devDependencies": {
+    "bootstrap": "~5.3.3",
     "esbuild": "^0.13.15"
   },
   "resolutions": {
