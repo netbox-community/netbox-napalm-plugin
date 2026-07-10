@@ -2,7 +2,7 @@
 
 __author__ = """Arthur Hanson"""
 __email__ = "ahanson@netboxlabs.com"
-__version__ = "0.3.4"
+__version__ = "0.3.5"
 
 
 from netbox.plugins import PluginConfig
@@ -21,7 +21,7 @@ class NapalmPlatformConfig(PluginConfig):
         'NAPALM_TIMEOUT': 30,
         'NAPALM_ARGS': {},
     }
-    min_version = '4.2.0'
+    min_version = '4.6.0'
     max_version = '4.6.99'
 
 
