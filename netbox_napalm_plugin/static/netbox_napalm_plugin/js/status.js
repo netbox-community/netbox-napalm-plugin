@@ -595,6 +595,8 @@
         iconName = "mdi-alert";
         break;
     }
+    const textClass = level === "warning" || level === "info" ? "text-dark" : "text-white";
+    const closeClass = level === "warning" || level === "info" ? "btn-close" : "btn-close-white";
     const container = document.createElement("div");
     container.setAttribute("class", "toast-container position-fixed bottom-0 end-0 m-3");
     const main = document.createElement("div");
@@ -603,7 +605,7 @@
     main.setAttribute("aria-live", "assertive");
     main.setAttribute("aria-atomic", "true");
     const header = document.createElement("div");
-    header.setAttribute("class", `toast-header bg-${level} text-body`);
+    header.setAttribute("class", `toast-header bg-${level} ${textClass}`);
     const icon = document.createElement("i");
     icon.setAttribute("class", `mdi ${iconName}`);
     const titleElement = document.createElement("strong");
@@ -611,11 +613,11 @@
     titleElement.innerText = title;
     const button = document.createElement("button");
     button.setAttribute("type", "button");
-    button.setAttribute("class", "btn-close");
+    button.setAttribute("class", closeClass);
     button.setAttribute("data-bs-dismiss", "toast");
     button.setAttribute("aria-label", "Close");
     const body = document.createElement("div");
-    body.setAttribute("class", "toast-body");
+    body.setAttribute("class", `toast-body ${textClass}`);
     header.appendChild(icon);
     header.appendChild(titleElement);
     if (typeof extra !== "undefined") {
@@ -629,7 +631,7 @@
     main.appendChild(body);
     container.appendChild(main);
     document.body.appendChild(container);
-    const toast = new window.bootstrap.Toast(main);
+    const toast = new window.Toast(main);
     return toast;
   }
 

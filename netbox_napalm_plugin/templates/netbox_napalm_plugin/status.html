@@ -1,10 +1,10 @@
 {% extends 'dcim/device/base.html' %}
-{% load static %}
+{% load napalm_static %}
 
 {% block title %}{{ object }} - Status{% endblock %}
 
 {% block head %}
-<script type="text/javascript" src="{% static 'netbox_napalm_plugin/js/status.js' %}" onerror="window.location='{% url 'media_failure' %}?filename=status.js'"></script>
+<script type="text/javascript" src="{% static_versioned 'netbox_napalm_plugin/js/status.js' %}" onerror="window.location='{% url 'media_failure' %}?filename=status.js'"></script>
 {% endblock %}
 
 {% block content %}

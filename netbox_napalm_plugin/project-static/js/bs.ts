@@ -1,4 +1,8 @@
-import type { Toast } from 'bootstrap';
+import type { Toast as ToastType } from 'bootstrap';
+
+declare global {
+  interface Window { Toast: typeof ToastType }
+}
 
 type ToastLevel = 'danger' | 'warning' | 'success' | 'info';
 
@@ -7,7 +11,7 @@ export function createToast(
   title: string,
   message: string,
   extra?: string,
-): Toast {
+): ToastType {
   let iconName = 'mdi-alert';
   switch (level) {
     case 'warning':
@@ -24,6 +28,11 @@ export function createToast(
       break;
   }
 
+  // bg-danger/bg-success are dark; bg-warning/bg-info are light. Pick text color for contrast
+  // against each, rather than a single color that only works for half of them.
+  const textClass = level === 'warning' || level === 'info' ? 'text-dark' : 'text-white';
+  const closeClass = level === 'warning' || level === 'info' ? 'btn-close' : 'btn-close-white';
+
   const container = document.createElement('div');
   container.setAttribute('class', 'toast-container position-fixed bottom-0 end-0 m-3');
 
@@ -34,7 +43,7 @@ export function createToast(
   main.setAttribute('aria-atomic', 'true');
 
   const header = document.createElement('div');
-  header.setAttribute('class', `toast-header bg-${level} text-body`);
+  header.setAttribute('class', `toast-header bg-${level} ${textClass}`);
 
   const icon = document.createElement('i');
   icon.setAttribute('class', `mdi ${iconName}`);
@@ -45,12 +54,12 @@ export function createToast(
 
   const button = document.createElement('button');
   button.setAttribute('type', 'button');
-  button.setAttribute('class', 'btn-close');
+  button.setAttribute('class', closeClass);
   button.setAttribute('data-bs-dismiss', 'toast');
   button.setAttribute('aria-label', 'Close');
 
   const body = document.createElement('div');
-  body.setAttribute('class', 'toast-body');
+  body.setAttribute('class', `toast-body ${textClass}`);
 
   header.appendChild(icon);
   header.appendChild(titleElement);
@@ -70,11 +79,12 @@ export function createToast(
   container.appendChild(main);
   document.body.appendChild(container);
 
-  // NetBox core already loads Bootstrap's JS and exposes it as `window.bootstrap`. Importing the
+  // NetBox core already loads Bootstrap's JS and exposes its components as globals (e.g.
+  // `window.Toast`, not a `window.bootstrap` namespace as of NetBox 4.7). Importing the
   // 'bootstrap' package here instead would bundle a second copy into this script, which
   // re-registers Bootstrap's document-level data-api click handlers (collapse, tab, etc.) and
   // conflicts with NetBox's own, breaking things like the sidebar menu's expand/collapse toggle.
-  const toast = new window.bootstrap.Toast(main);
+  const toast = new window.Toast(main);
   return toast;
 }
 

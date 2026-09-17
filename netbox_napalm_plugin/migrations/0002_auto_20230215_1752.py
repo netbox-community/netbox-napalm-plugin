@@ -32,6 +32,12 @@ def reverse_migrate_napalm(apps, schema_editor):
         pass
 
 
+# Backfills NapalmPlatformConfig from a legacy Platform.napalm_driver field that no
+# longer exists on current NetBox; already applied on main, so netbox-branching
+# should fake it during branch catch-up rather than re-running it per branch schema.
+fake_on_branch = True
+
+
 class Migration(migrations.Migration):
     dependencies = [
         ("netbox_napalm_plugin", "0001_initial"),
