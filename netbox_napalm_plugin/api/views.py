@@ -1,4 +1,5 @@
 from dcim.models import Device
+from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect, render
 from netbox.plugins.utils import get_plugin_config
 from netbox.api.exceptions import ServiceUnavailable
