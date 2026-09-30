@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.7 (2026-09-30)
+
+* Security: enforce object-level `napalm_read` permission on the NAPALM device API endpoint
+* Security: render device facts as text on the Status tab (fixes DOM XSS)
+
 ## 0.3.3 (2025-09-03)
 
 * For NetBox 4.4.0
