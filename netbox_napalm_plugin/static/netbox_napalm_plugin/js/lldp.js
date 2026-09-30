@@ -149,7 +149,8 @@
 
   // js/lldp.ts
   var CISCO_IOS_PATTERN = new RegExp(/^([A-Z][A-Za-z]+)[^0-9]*([0-9/]+)$/);
-  var CISCO_IOS_OVERRIDES = new Map([
+  var CISCO_IOS_OVERRIDES = /* @__PURE__ */ new Map([
+    // Cisco IOS abbreviates 25G (TwentyFiveGigE) interfaces as 'Twe'.
     ["TwentyFiveGigE", "Twe"]
   ]);
   function getData(row, query, attr) {
