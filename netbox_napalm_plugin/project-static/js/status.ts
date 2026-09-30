@@ -98,7 +98,7 @@ function processFacts(facts: DeviceFacts): void {
       // Find the target element which should have its innerHTML/innerText set to a NAPALM value.
       const element = document.getElementById(key);
       if (element !== null) {
-        element.innerHTML = String(facts[key]);
+        element.textContent = String(facts[key]);
       }
     }
   }
