@@ -29,7 +29,9 @@ class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
         """
         Execute a NAPALM method on a Device
         """
-        device = get_object_or_404(Device.objects.all(), pk=pk)
+        device = get_object_or_404(
+            Device.objects.restrict(request.user, "napalm_read"), pk=pk
+        )
         if not device.primary_ip:
             raise ServiceUnavailable(
                 "This device does not have a primary IP address configured."
@@ -87,7 +89,7 @@ class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
             )
 
         # Verify user permission
-        if not request.user.has_perm("dcim.napalm_read_device"):
+        if not request.user.has_perm("dcim.napalm_read_device", device):
             return HttpResponseForbidden()
 
         napalm_methods = request.GET.getlist("method")
