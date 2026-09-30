@@ -4,6 +4,7 @@
 
 * Security: enforce object-level `napalm_read` permission on the NAPALM device API endpoint
 * Security: render device facts as text on the Status tab (fixes DOM XSS)
+* Bump dev/build dependencies flagged by Dependabot (black, pip, esbuild)
 
 ## 0.3.3 (2025-09-03)
 
