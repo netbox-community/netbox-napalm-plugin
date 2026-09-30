@@ -770,7 +770,7 @@
       if (key in facts) {
         const element = document.getElementById(key);
         if (element !== null) {
-          element.innerHTML = String(facts[key]);
+          element.textContent = String(facts[key]);
         }
       }
     }
