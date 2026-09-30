@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "bootstrap": "~5.3.3",
-    "esbuild": "^0.13.15"
+    "esbuild": "^0.25.0"
   },
   "resolutions": {
     "@types/bootstrap/**/@popperjs/core": "^2.11.6"
