@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+* Add `NAPALM_USE_NAT_OUTSIDE` and the `napalm.use_nat_outside` config context key to connect to a device's NAT outside address, per device or tenant
+
 ## 0.3.7 (2026-09-30)
 
 * Security: enforce object-level `napalm_read` permission on the NAPALM device API endpoint

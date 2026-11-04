@@ -11,6 +11,7 @@ from rest_framework.response import Response
 
 from netbox_napalm_plugin import filtersets
 from netbox_napalm_plugin.models import NapalmPlatformConfig
+from netbox_napalm_plugin.utils import get_connection_ip
 
 from . import serializers
 
@@ -50,7 +51,10 @@ class NapalmPlatformConfigViewSet(NetBoxModelViewSet):
 
         # Check for primary IP address from NetBox object
         if device.primary_ip:
-            host = str(device.primary_ip.address.ip)
+            connection_ip = get_connection_ip(
+                device, get_plugin_config("netbox_napalm_plugin", "NAPALM_USE_NAT_OUTSIDE")
+            )
+            host = str(connection_ip.address.ip)
         else:
             # Raise exception for no IP address and no Name if device.name does not exist
             if not device.name:
