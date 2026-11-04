@@ -20,6 +20,7 @@ class NapalmPlatformConfig(PluginConfig):
     default_settings = {
         'NAPALM_TIMEOUT': 30,
         'NAPALM_ARGS': {},
+        'NAPALM_USE_NAT_OUTSIDE': False,
     }
     min_version = '4.7.0'
     max_version = '4.7.99'

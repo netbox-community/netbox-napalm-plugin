@@ -57,3 +57,25 @@ Default: 30 seconds
 The amount of time (in seconds) to wait for NAPALM to connect to a device.
 
 ---
+
+## NAPALM_USE_NAT_OUTSIDE
+
+Default: False
+
+Connect to the NAT outside address of a device's primary IP instead of the primary IP itself. Use this when NetBox reaches devices through NAT, for example client sites with overlapping address space behind a VPN that translates each site to a unique range.
+
+To use it, record the device's real address as its primary IP (in the site's VRF), and create the translated address with its **NAT (inside)** field set to the primary IP. If the primary IP has no NAT outside address, NetBox connects to the primary IP. If it has several, NetBox uses the one with the lowest ID.
+
+This parameter sets the default for all devices. Override it per device, tenant, site, role, platform or tag with a `napalm.use_nat_outside` boolean in [config context](https://netboxlabs.com/docs/netbox/en/stable/features/context-data/). The value in the device's rendered config context takes precedence over this parameter:
+
+```json
+{
+    "napalm": {
+        "use_nat_outside": true
+    }
+}
+```
+
+For example, assign a config context with the data above to the tenants whose sites are behind NAT, and set `"use_nat_outside": false` in a device's local context data to exclude that device.
+
+---
